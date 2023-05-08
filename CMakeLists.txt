@@ -1,4 +1,7 @@
 cmake_minimum_required(VERSION 3.0)
 project(pds)
 
-add_executable(${PROJECT_NAME}-seq main.cpp)
+include_directories(${PROJECT_SOURCE_DIR}/src/common)
+
+include(${PROJECT_SOURCE_DIR}/src/parallel/CMakeLists.txt)
+include(${PROJECT_SOURCE_DIR}/src/sequential/CMakeLists.txt)
