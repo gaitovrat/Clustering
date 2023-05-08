@@ -1,3 +1,5 @@
+#ifndef _POINT_HPP_
+#define _POINT_HPP_
 #include <iostream>
 
 class Point {
@@ -32,3 +34,4 @@ private:
   int m_cluster;
   double m_minDistance;
 };
+#endif //_POINT_HPP_
