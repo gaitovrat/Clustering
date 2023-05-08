@@ -1,7 +1,9 @@
 cmake_minimum_required(VERSION 3.0)
 project(pds)
 
-include_directories(${PROJECT_SOURCE_DIR}/src/common)
+add_subdirectory(${PROJECT_SOURCE_DIR}/src/common)
+include_directories(${common_INC})
+link_libraries(${common_LIB})
 
-include(${PROJECT_SOURCE_DIR}/src/parallel/CMakeLists.txt)
-include(${PROJECT_SOURCE_DIR}/src/sequential/CMakeLists.txt)
+add_subdirectory(${PROJECT_SOURCE_DIR}/src/parallel)
+add_subdirectory(${PROJECT_SOURCE_DIR}/src/sequential)
