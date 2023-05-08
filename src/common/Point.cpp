@@ -7,7 +7,7 @@ Point::Point() : Point(0.0, 0.0) {}
 
 Point::Point(const double x, const double y)
     : m_x(x), m_y(y), m_cluster(-1),
-      m_minDistance(std::numeric_limits<double>::max()) {}
+      m_minDistance(std::numeric_limits<double>::max()), m_visited(false) {}
 double Point::X() const { return m_x; }
 
 void Point::SetX(double x) { m_x = x; }
@@ -34,3 +34,7 @@ std::ostream &operator<<(std::ostream &os, const Point &obj) {
 
   return os;
 }
+
+bool Point::Visited() const { return m_visited; }
+
+void Point::SetVisited(bool visited) { m_visited = visited; }

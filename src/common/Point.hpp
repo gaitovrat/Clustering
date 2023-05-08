@@ -24,6 +24,10 @@ public:
 
   void SetMinDistance(double minDistance);
 
+  bool Visited() const;
+
+  void SetVisited(bool visited);
+
   double Distance(Point point) const;
 
   friend std::ostream &operator<<(std::ostream &os, const Point &obj);
@@ -33,5 +37,6 @@ private:
   double m_y;
   int m_cluster;
   double m_minDistance;
+  bool m_visited;
 };
 #endif //_POINT_HPP_
