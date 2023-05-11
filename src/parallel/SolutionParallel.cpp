@@ -1,4 +1,4 @@
-#include "Solution.hpp"
+#include "SolutionParallel.hpp"
 
 #include <omp.h>
 #include <vcruntime.h>
@@ -41,7 +41,6 @@ void Solution::kMeans(std::vector<Point> &points, const int k, const int iter) {
                                           sizeof(int), &pointsSize);
 
   for (int i = 0; i < iter; ++i) {
-    printf("%d\n", i);
     clContext.GetKernel("calculateDistance").setArg(0, pointsBuffer);
     clContext.GetKernel("calculateDistance").setArg(1, centroidsBuffer);
     clContext.GetKernel("calculateDistance").setArg(2, centroidsSizeBuffer);
@@ -76,7 +75,6 @@ void Solution::kMeansOMP(std::vector<Point> &points, const int k,
     for (int j = 0; j < k; j++) {
       for (auto &point : points) {
         const auto distance = centroids[j].Distance(point);
-#pragma omp critical
         if (distance < point.MinDistance()) {
           point.SetMinDistance(distance);
           point.SetCluster(j);

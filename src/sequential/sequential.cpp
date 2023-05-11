@@ -36,7 +36,6 @@ int main(int argc, const char **argv) {
   } else if (std::string(argv[1]) == "dbscan") {
     const double eps = std::stod(argv[5]);
     const int minPts = std::atoi(argv[6]);
-
     Solution::dbscan(points, eps, minPts);
   } else {
     std::cerr << "Invalid type.\n";

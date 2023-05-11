@@ -41,7 +41,7 @@ void Solution::kMeans(std::vector<Point> &points, const int k, const int iter) {
   }
 }
 
-static std::vector<Point> regionQuery(std::vector<Point> points, Point p,
+static std::vector<Point> regionQuery(std::vector<Point> &points, Point &p,
                                       double eps) {
   std::vector<Point> neighbors;
   for (auto &q : points) {

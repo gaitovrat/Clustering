@@ -25,7 +25,7 @@ double Point::MinDistance() const { return m_minDistance; }
 void Point::SetMinDistance(double minDistance) { m_minDistance = minDistance; }
 
 double Point::Distance(Point point) const {
-  return std::pow(point.X() - X(), 2) + std::pow(point.Y() - Y(), 2);
+  return std::sqrt(std::pow(point.X() - X(), 2) + std::pow(point.Y() - Y(), 2));
 }
 
 std::ostream &operator<<(std::ostream &os, const Point &obj) {

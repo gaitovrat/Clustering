@@ -3,7 +3,7 @@
 #include <iostream>
 #include <vector>
 
-#include "Solution.hpp"
+#include "SolutionParallel.hpp"
 #include "Utils.hpp"
 
 int main(int argc, const char **argv) {
@@ -14,7 +14,6 @@ int main(int argc, const char **argv) {
                  "minPts\n";
     return EXIT_FAILURE;
   }
-
   auto csv = Utils::readCSV(argv[2]);
   const auto xline = argv[3];
   const auto yline = argv[4];
@@ -25,6 +24,7 @@ int main(int argc, const char **argv) {
   for (int i = 0; i < x.size(); ++i) {
     points.emplace_back(std::stod(x[i]), std::stod(y[i]));
   }
+
   auto start = std::chrono::high_resolution_clock::now();
   std::string type(argv[1]);
   if (type == "kmeans") {
