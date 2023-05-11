@@ -35,3 +35,15 @@ Utils::readCSV(const char *filename) {
   }
   return out;
 }
+
+std::string Utils::readFile(const char *filename) {
+  std::ifstream fin(filename);
+  if (!fin.is_open()) {
+    std::cerr << filename << " not found.\n";
+    return "";
+  }
+  std::stringstream buffer;
+  buffer << fin.rdbuf();
+
+  return buffer.str();
+}

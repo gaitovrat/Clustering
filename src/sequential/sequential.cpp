@@ -1,3 +1,4 @@
+#include <chrono>
 #include <fstream>
 #include <stdlib.h>
 #include <string>
@@ -26,6 +27,7 @@ int main(int argc, const char **argv) {
     points.emplace_back(std::stod(x[i]), std::stod(y[i]));
   }
 
+  auto start = std::chrono::high_resolution_clock::now();
   if (std::string(argv[1]) == "kmeans") {
     const int k = std::atoi(argv[5]);
     const int iter = std::atoi(argv[6]);
@@ -40,6 +42,10 @@ int main(int argc, const char **argv) {
     std::cerr << "Invalid type.\n";
     return EXIT_FAILURE;
   }
+  auto end = std::chrono::high_resolution_clock::now(); // get the current time
+  auto duration =
+      std::chrono::duration_cast<std::chrono::milliseconds>(end - start);
+  std::cout << duration.count() << "ms\n";
 
   std::ofstream fout("out.csv");
   fout << "x,y,c\n";
