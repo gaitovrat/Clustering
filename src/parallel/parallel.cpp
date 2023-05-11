@@ -10,8 +10,6 @@ int main(int argc, const char **argv) {
   if (argc < 6) {
     std::cout << "Usage:\n\tpds-parallel kmeans filepath xline yline k iter\n";
     std::cout << "\n\tpds-parallel kmeans-omp filepath xline yline k iter\n";
-    std::cout << "\tpds-parallel dbscan filepath xline yline eps "
-                 "minPts\n";
     return EXIT_FAILURE;
   }
   auto csv = Utils::readCSV(argv[2]);
@@ -37,11 +35,6 @@ int main(int argc, const char **argv) {
     const int iter = std::atoi(argv[6]);
 
     Solution::kMeansOMP(points, k, iter);
-  } else if (type == "dbscan") {
-    const double eps = std::stod(argv[5]);
-    const int minPts = std::atoi(argv[6]);
-
-    Solution::dbscan(points, eps, minPts);
   } else {
     std::cerr << "Invalid type.\n";
     return EXIT_FAILURE;

@@ -6,6 +6,5 @@
 
 namespace Solution {
 void kMeans(std::vector<Point> &points, int k, int iter);
-void dbscan(std::vector<Point> &points, double eps, int minPts);
 } // namespace Solution
 #endif //_SOLUTION_HPP_
