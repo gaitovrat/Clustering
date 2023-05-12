@@ -4,3 +4,4 @@ venv
 compile_commands.json
 *.idx
 out.csv
+.DS_Store
