@@ -9,7 +9,7 @@ def plot(filepath: str, xname: str, yname: str, sname: Optional[str] = None):
     csv = pd.read_csv(filepath)
     labels = None
 
-    if sname is not None:
+    if sname:
         labels = csv.loc[:, sname]
 
     plt.xlabel(xname)
